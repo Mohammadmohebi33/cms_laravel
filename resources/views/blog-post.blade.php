@@ -20,7 +20,7 @@
     <hr>
 
     <!-- Preview Image -->
-    <img class="img-fluid rounded" src="/image/{{$post->post_image}}" alt="">
+    <img class="img-fluid rounded" src="/storage/{{$post->post_image}}" alt="">
 
     <hr>
 
