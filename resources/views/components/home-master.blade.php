@@ -51,6 +51,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/login">login</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
                 @endif
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>

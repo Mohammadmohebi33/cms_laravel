@@ -32,4 +32,8 @@ Route::middleware('auth')->group(function (){
     Route::get('/admin/posts/{post}/destroy', 'PostController@destroy')->name('post.destroy');
     Route::put('/admin/posts/{post}/update', 'PostController@update')->name('post.update');
 
+
+    Route::get('/admin/users/{user}/profile' , 'UserController@show')->name('user.profile.show') ;
+    Route::put('/admin/users/{user}/update' , 'UserController@update')->name('user.profile.update') ;
+
 });
