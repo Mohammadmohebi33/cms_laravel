@@ -55,7 +55,11 @@
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        @include('components.admin-sidebar-posts-links')
+        @include('components.admin.sidebar.admin-sidebar-posts-links')
+
+        @if(auth()->user()->userHasRole('Admin'))
+        @include('components.admin.sidebar.admin-sidbar-users-links')
+        @endif
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
@@ -284,7 +288,7 @@
                     <div class="topbar-divider d-none d-sm-block"></div>
 
                     <!-- Nav Item - User Information -->
-                    @include('components.admin-top-navbar-user-information')
+                    @include('components.admin.top-nav.admin-top-navbar-user-information')
 
                 </ul>
 
