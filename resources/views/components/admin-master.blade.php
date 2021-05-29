@@ -61,6 +61,15 @@
         @include('components.admin.sidebar.admin-sidbar-users-links')
         @endif
 
+
+        @include('components.admin.sidebar.authorization-links')
+
+
+
+
+
+
+
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">

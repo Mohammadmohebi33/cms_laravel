@@ -50,6 +50,10 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapUserRoutes() ;
 
+        $this->mapRoleRoutes() ;
+
+        $this->mapPermissionRoutes() ;
+
         //
     }
 
@@ -100,5 +104,25 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/web/user.php'));
+    }
+
+
+
+    protected function mapRoleRoutes()
+    {
+        Route::prefix('admin')
+            ->middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web/role.php'));
+    }
+
+
+
+    protected function mapPermissionRoutes()
+    {
+        Route::prefix('admin')
+            ->middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web/permission.php'));
     }
 }
