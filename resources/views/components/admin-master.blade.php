@@ -65,6 +65,9 @@
         @include('components.admin.sidebar.authorization-links')
 
 
+        @include('components.admin.sidebar.admin-sidbar-category-links')
+
+
 
 
 
