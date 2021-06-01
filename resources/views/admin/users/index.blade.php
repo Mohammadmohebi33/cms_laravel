@@ -47,7 +47,7 @@
                             <th><a href="{{route('user.profile.show' , $user->id)}}">{{$user->username}}</a></th>
 
                             <td>
-                                <img src="/storage/{{$user->avatar}}" height="50px">
+                                <img src="/storage/images/{{$user->avatar}}" height="50px">
                             </td>
 
                             <td>{{$user->name}}</td>

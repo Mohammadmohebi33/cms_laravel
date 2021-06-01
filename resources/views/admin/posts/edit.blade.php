@@ -19,7 +19,7 @@
 
 
         <div class="form-group">
-            <div><img height="100px" src="/storage/{{$post->post_image}}"></div>
+            <div><img height="100px" src="/storage/images/{{$post->post_image}}"></div>
             <label for="title">File</label>
             <input type="file" name="post_image" class="form-control-file" id="post_image"  placeholder="entet title">
             @if($errors->has('post_image'))

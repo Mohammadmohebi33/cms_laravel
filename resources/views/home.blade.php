@@ -11,7 +11,7 @@
     @foreach($posts as $post)
     <!-- Blog Post -->
     <div class="card mb-4">
-        <img class="card-img-top" src="/storage/{{$post->post_image}}" alt="Card image cap">
+        <img class="card-img-top" src="/storage/images/{{$post->post_image}}" alt="Card image cap">
         <div class="card-body">
             <h2 class="card-title">{{$post->title}}</h2>
             <p class="card-text">{{$post->body}}</p>
@@ -20,7 +20,7 @@
         </div>
         <div class="card-footer text-muted">
             Posted on January 1, 2017 by
-            <a href="#">Start Bootstrap</a>
+            <a href="#">{{$post->user->name}}</a>
         </div>
     </div>
     @endforeach

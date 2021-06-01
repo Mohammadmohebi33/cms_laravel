@@ -52,7 +52,7 @@
                         <td><a href="{{route('post.edit' , $post->id)}}"> {{$post->title}}</a></td>
 
                         <td>
-                            <img src="/storage/{{$post->post_image}}" height="40px">
+                            <img src="/storage/images/{{$post->post_image}}" height="50px" width="70px">
                         </td>
 
                         <td>{{$post->created_at}}</td>

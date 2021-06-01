@@ -15,9 +15,10 @@
 
             <div class="col-md-4">
 
-                <img src="/storage/{{$user->avatar}}" alt="" class="img-profile rounded-circle">
+                <img src="/storage/images/{{$user->avatar}}" alt="" class="img-profile rounded-circle">
 
             </div>
+            <br>
 
 
             <div class="form-group">
