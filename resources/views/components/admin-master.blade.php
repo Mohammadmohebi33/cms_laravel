@@ -56,6 +56,7 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         @include('components.admin.sidebar.admin-sidebar-posts-links')
+        @include('components.admin.sidebar.admin-sidbar-profile-links')
 
         @if(auth()->user()->userHasRole('Admin'))
         @include('components.admin.sidebar.admin-sidbar-users-links')
