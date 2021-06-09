@@ -11,5 +11,11 @@ Route::get('/posts/{post}/edit', 'PostController@edit')->name('post.edit');
 Route::delete('/posts/{post}/destroy', 'PostController@destroy')->name('post.destroy');
 Route::put('/posts/{post}/update', 'PostController@update')->name('post.update');
 
+Route::put('/posts/{post}/attach' , 'PostController@attach')->name('post.attach');
+Route::put('/posts/{post}/detach' , 'PostController@detach')->name('post.detach')
+
+
+
+
 
 ?>

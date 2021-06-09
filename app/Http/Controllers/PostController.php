@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Category;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session ;
@@ -62,9 +63,10 @@ class PostController extends Controller
 
 
     public function edit(Post $post){
-        $this->authorize('view' , $post) ;
-        return view('admin.posts.edit' , ['post' => $post]) ;
 
+        $this->authorize('view' , $post) ;
+        $categorys = Category::all() ;
+        return view('admin.posts.edit' , ['post' => $post , 'categorys' => $categorys]) ;
     }
 
 
@@ -123,6 +125,53 @@ class PostController extends Controller
 
         return back() ;
     }
+
+
+
+
+
+
+
+
+
+    public function attach(Post $post){
+
+
+     $post->category()->attach(request('category'));
+       // $user->roles()->attach(request('role'));
+
+       return back() ;
+    }
+
+
+
+    public function detach(Post $post){
+
+        $post->category()->detach(request('category'));
+
+
+        return back() ;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
