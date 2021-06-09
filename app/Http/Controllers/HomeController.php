@@ -30,4 +30,18 @@ class HomeController extends Controller
 
         return view('home'  , ['posts' => $posts , 'categorys' => $category]);
     }
+
+
+    public function index_category(Category  $category){
+
+       $posts = $category->post ;
+
+
+        $category = Category::all() ;
+
+        return view('home'  , ['posts' => $posts , 'categorys' => $category]);
+
+
+
+    }
 }
