@@ -68,6 +68,11 @@
 
         @include('components.admin.sidebar.admin-sidbar-category-links')
 
+        @if(auth()->user()->userHasRole('Admin'))
+
+            @include('components.admin.sidebar.admin-sidbar-comment-links')
+        @endif
+
 
 
 

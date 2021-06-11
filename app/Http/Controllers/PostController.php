@@ -21,7 +21,10 @@ class PostController extends Controller
 
     public  function show(Post $post){
 
-        return view('blog-post' , ['post' => $post]) ;
+        $categorys = Category::all() ;
+
+
+        return view('blog-post' , ['post' => $post , 'categorys' => $categorys]) ;
     }
 
 
