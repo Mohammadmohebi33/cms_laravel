@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Category;
+use App\Comment;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session ;
@@ -12,6 +13,9 @@ use Intervention\Image\ImageManagerStatic as Image;
 class PostController extends Controller
 {
 
+
+
+
     public function index(){
 
         $posts   = auth()->user()->posts()->paginate(5);
@@ -19,18 +23,30 @@ class PostController extends Controller
     }
 
 
+
+
+
+
     public  function show(Post $post){
 
         $categorys = Category::all() ;
-
-
         return view('blog-post' , ['post' => $post , 'categorys' => $categorys]) ;
     }
+
+
+
+
+
 
 
     public  function create(){
         return view('admin.posts.create') ;
     }
+
+
+
+
+
 
 
 
@@ -65,12 +81,20 @@ class PostController extends Controller
 
 
 
+
+
+
+
     public function edit(Post $post){
 
         $this->authorize('view' , $post) ;
         $categorys = Category::all() ;
         return view('admin.posts.edit' , ['post' => $post , 'categorys' => $categorys]) ;
     }
+
+
+
+
 
 
 
@@ -117,6 +141,13 @@ class PostController extends Controller
         return redirect()->route('post.index') ;
 
     }
+
+
+
+
+
+
+
 
 
     public function  destroy(Post $post , Request $request){

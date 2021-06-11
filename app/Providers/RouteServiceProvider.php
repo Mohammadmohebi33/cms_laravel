@@ -58,6 +58,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapProfileRoutes() ;
 
+        $this->mapCommentRoutes() ;
+
         //
     }
 
@@ -146,5 +148,15 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/web/profile.php'));
+    }
+
+
+
+    protected function mapCommentRoutes()
+    {
+        Route::prefix('admin')
+            ->middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web/comment.php'));
     }
 }
