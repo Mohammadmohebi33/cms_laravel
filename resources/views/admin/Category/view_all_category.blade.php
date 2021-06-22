@@ -34,6 +34,7 @@
         </div>
 
 
+        <div    class="row">
         <div class="col-sm-9">
 
             <div class="card shadow mb-4">
