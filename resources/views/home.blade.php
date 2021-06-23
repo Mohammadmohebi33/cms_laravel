@@ -20,7 +20,7 @@
         </div>
         <div class="card-footer text-muted">
             Posted on January 1, 2017 by
-            <a href="#">{{$post->user->name}}</a>
+            <a href="{{route('showprofile'    ,   $post->user->id)}}">{{$post->user->name}}</a>
         </div>
     </div>
     @endforeach

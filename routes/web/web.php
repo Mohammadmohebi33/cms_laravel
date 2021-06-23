@@ -27,6 +27,7 @@ Route::get('articles/post/{post}' , 'PostController@show')->name('post') ;
 
 Route::get('/search'    ,   'SearchController@index')->name('search')   ;
 Route::get('/admin/charts'  ,   'ChartController@index')->name('charts')    ;
+Route::get('/profile/{user}'  ,   'ProfileController@show')->name('showprofile')  ;
 
 
 
