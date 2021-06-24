@@ -97,6 +97,21 @@
                     @enderror
                 </div>
 
+
+
+
+
+
+                <div class="form-group">
+
+                    <label for="cv">
+                        <textarea   name="cv">{{$user->cv}}</textarea>
+                    </label>
+                    @error('cv')
+                    <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
+                </div>
+
                 <button type="submit" class="btn btn-primary">Submit</button>
 
             </form>

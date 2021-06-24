@@ -40,6 +40,7 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'avatar'   =>'image|max:10000|mimes:doc,docx,png,jpg' ,
+            'cv'    =>  'required'  ,
 
         ]);
 
@@ -69,15 +70,12 @@ class UserController extends Controller
         $input['avatar'] =  $file_name ;
 
 
-
-
-
-
-
-
         $user->update($input) ;
         return back() ;
     }
+
+
+
 
 
     public function destroy(User $user){

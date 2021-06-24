@@ -11,5 +11,7 @@
     <h2>{{$users->email}}</h2>
     <img src="/storage/images/{{$users->avatar}}" alt=""   width="170px" height="100px">
 
+    <p>{{$users->cv}}</p>
+
 
 @endsection
