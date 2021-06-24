@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\news;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -27,8 +28,9 @@ class HomeController extends Controller
     {
         $posts = Post::all() ;
         $category = Category::all() ;
+        $news   =  news::orderBy('created_at'   ,   'desc')->take(3)->get();
 
-        return view('home'  , ['posts' => $posts , 'categorys' => $category]);
+        return view('home'  , ['posts' => $posts , 'categorys' => $category ,   'news'  =>  $news]);
     }
 
 

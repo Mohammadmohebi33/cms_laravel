@@ -60,6 +60,9 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapCommentRoutes() ;
 
+        $this->mapNewsRoutes()  ;
+
+
         //
     }
 
@@ -158,5 +161,15 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/web/comment.php'));
+    }
+
+
+
+    protected function mapNewsRoutes()
+    {
+        Route::prefix('admin')
+            ->middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web/news.php'));
     }
 }

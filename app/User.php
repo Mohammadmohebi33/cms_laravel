@@ -71,4 +71,10 @@ class User extends Authenticatable
         return $this->hasMany(Category::class) ;
     }
 
+
+    public function news()
+    {
+        return  $this->hasMany(news::class) ;
+    }
+
 }

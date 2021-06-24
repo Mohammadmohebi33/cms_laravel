@@ -1,24 +1,15 @@
 
 
+@foreach($news as  $new)
+
+
+
 <div class="card my-4">
-    <h5 class="card-header">Side Widget</h5>
+    <h5 class="card-header">{{$new->user->name}}</h5>
     <div class="card-body">
-        You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+      {{$new->body}}
     </div>
 </div>
 
 
-<div class="card my-4">
-    <h5 class="card-header">Side Widget</h5>
-    <div class="card-body">
-        You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-    </div>
-</div>
-
-
-<div class="card my-4">
-    <h5 class="card-header">Side Widget</h5>
-    <div class="card-body">
-        You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-    </div>
-</div>
+@endforeach

@@ -77,6 +77,8 @@
 
     @include('components.admin.sidebar.admin-sidbar-chart')
 
+        @include('components.admin.sidebar.admin-sidbar-news-link')
+
 
 
 

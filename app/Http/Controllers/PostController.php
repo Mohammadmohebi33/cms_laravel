@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Comment;
+use App\news;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session ;
@@ -19,6 +20,7 @@ class PostController extends Controller
     public function index(){
 
         $posts   = auth()->user()->posts()->paginate(5);
+
         return view('admin.posts.view_all_posts' , ['posts' => $posts]) ;
     }
 
