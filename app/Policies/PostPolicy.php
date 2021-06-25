@@ -30,7 +30,14 @@ class PostPolicy
      */
     public function view(User $user, Post $post)
     {
-        return $user->id  === $post->user_id ;
+        if ($user->userHasRole('Admin'))
+        {
+            return true ;
+        }
+        if ($user->userHasRole('Author'))
+        {
+            return true ;
+        }
     }
 
     /**

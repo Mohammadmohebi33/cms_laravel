@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class RoleMiddleware
+class PermissionMiddleware
 {
     /**
      * Handle an incoming request.
@@ -13,15 +13,18 @@ class RoleMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next  , $role)
+    public function handle($request, Closure $next  ,   $permission)
     {
 
-        if (!$request->user()->userHasRole($role))
+
+
+        if (!$request->user()->userHasPermission($permission))
         {
             abort(403  ,'You are not authorized');
         }
 
 
         return $next($request);
+
     }
 }

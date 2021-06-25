@@ -47,7 +47,7 @@ class PostController extends ImageController
 
     public  function store()
     {
-        $this->authorize('create' , Post::class) ;
+       // $this->authorize('create' , Post::class) ;
 
          $inputs = request()->validate([
             'title'       => 'required|min:8|max:25' ,

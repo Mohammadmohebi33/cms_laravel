@@ -29,15 +29,17 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
-        if ($user->userHasRole('Admin')){
+
+        if ($user->userHasRole('Admin'))
+        {
             return true ;
         }
-        if ($user->userHasRole('moderator')){
+        if ($user->userHasRole('Author'))
+        {
             return true ;
         }
-        if ($user->userHasRole('manager')){
-            return true ;
-        }
+
+
     }
 
     /**

@@ -55,9 +55,11 @@ class User extends Authenticatable
 
     public function userHasRole($role_name){
 
-        foreach ($this->roles as $role){
+        foreach ($this->roles as $role)
+        {
 
-            if ($role_name == $role->name){
+            if ($role_name == $role->name)
+            {
                 return true ;
             }
         }
@@ -65,6 +67,22 @@ class User extends Authenticatable
                 return false ;
 
         }
+
+
+
+    public function userHasPermission($permission_name)
+    {
+        foreach ($this->permissions as $permission)
+        {
+            if ($permission_name    ==  $permission->name)
+            {
+                return  true    ;
+            }
+
+        }
+
+        return false    ;
+    }
 
 
     public function  cats(){
