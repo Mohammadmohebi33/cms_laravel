@@ -11,7 +11,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">comments:</h6>
 
-            <a class="collapse-item" href="#">view all Comments</a>
+            <a class="collapse-item" href="{{route('all_comment')}}">view all Comments</a>
 
         </div>
     </div>

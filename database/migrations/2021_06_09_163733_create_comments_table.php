@@ -25,6 +25,7 @@ class CreateCommentsTable extends Migration
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade') ;
 
             $table->integer('parent_id')->unsigned()->nullable();
+            $table->boolean('accept')->default(false)   ;
 
             $table->text('comment') ;
 

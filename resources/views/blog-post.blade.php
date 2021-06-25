@@ -27,6 +27,11 @@
     <!-- Post Content -->
     <p class="lead">{{$post->body}}</p>
 
+
+{{--    <a  href="{{route('Download'   ,   $post->id)}}">Download</a>--}}
+
+    <a href="{{route('g'   ,   $post->id)}}">dow</a>
+
     <blockquote class="blockquote">
 
 

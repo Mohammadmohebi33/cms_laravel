@@ -31,6 +31,10 @@ Route::get('/profile/{user}'  ,   'ProfileController@show')->name('showprofile')
 
 
 
+Route::get('/d/{id}'    ,     'DownloadController@index')->name('g')   ;
+
+
+
 
 
 Route::middleware('auth')->group(function (){
