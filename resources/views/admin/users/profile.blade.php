@@ -227,4 +227,140 @@
     </div>
 
 
+
+
+
+
+
+
+
+
+{{--    permission--}}
+
+
+
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+
+                                <th>option</th>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>slug</th>
+                                <th>Attach</th>
+                                <th>Detach</th>
+
+
+                            </tr>
+                            </thead>
+                            <tfoot>
+                            <tr>
+
+                                <th>option</th>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>slug</th>
+                                <th>Attach</th>
+                                <th>Detach</th>
+
+
+                            </tr>
+                            </tfoot>
+                            <tbody>
+
+
+                            @foreach($permissions as $permission)
+                                <tr>
+                                    <th><input type="checkbox"
+                                               @foreach($user->permissions as $user_permission)
+                                               @if($user_permission->slug == $permission->slug)
+                                               checked
+                                            @endif
+                                            @endforeach
+                                        >
+                                    </th>
+                                    <td>{{$permission->id}}</td>
+                                    <th>{{$permission->name}}</th>
+                                    <td>{{$permission->slug}}</td>
+
+
+
+                                    <td>
+
+                                        <form method="post" action="{{route('users.attach_permissions' , $user)}}">
+                                            @csrf
+                                            @method('PUT')
+
+                                            <input type="hidden" name="permissions" value="{{$permission->id}}">
+                                            <button class="btn btn-primary"
+
+                                                    @if($user->permissions->contains($permission))
+                                                    disabled
+                                                @endif
+
+                                            >
+
+
+
+                                                Attach</button>
+
+
+                                        </form>
+
+                                    </td>
+
+
+
+
+                                    <td>
+
+                                        <form method="post" action="{{route('users.detach_permissions' , $user)}}">
+                                            @csrf
+                                            @method('PUT')
+                                            <input type="hidden" name="permissions" value="{{$permission->id}}">
+                                            <button class="btn btn-danger"
+
+                                                    @if(!$user->permissions->contains($permission))
+                                                    disabled
+                                                @endif
+
+
+                                            >Detach</button>
+
+
+                                        </form>
+
+                                    </td>
+
+
+
+                                </tr>
+
+                            @endforeach
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Permission;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
@@ -27,6 +28,7 @@ class UserController extends Controller
 
             'user' => $user ,
             'roles'=> Role::all()  ,
+            'permissions'    =>  Permission::all()   ,
 
         ]) ;
     }
@@ -99,6 +101,13 @@ class UserController extends Controller
     }
 
 
+    public function attach_permission(User $user)
+    {
+        $user->permissions()->attach(request('permissions'));
+        return  back()  ;
+    }
+
+
 
     public function detach(User $user){
 
@@ -106,4 +115,15 @@ class UserController extends Controller
 
         return back() ;
     }
+
+
+
+
+    public function detach_permission(User $user)
+    {
+        $user->permissions()->detach(request('permissions'));
+        return  back()  ;
+
+    }
+
 }
