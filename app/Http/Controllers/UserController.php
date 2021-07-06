@@ -76,44 +76,45 @@ class UserController extends Controller
 
 
         $user->update($input) ;
-        return back() ;
+        return back()->with('attach' , "profile updated") ;
     }
 
 
 
 
 
-    public function destroy(User $user){
-
+    public function destroy(User $user)
+    {
         $user->delete() ;
-
-        return back() ;
-
+        return back()->with('delete' , 'user deleted :))') ;
     }
+
+
 
 
     public function attach(User $user){
-
-
        $user->roles()->attach(request('role'));
-
-       return back() ;
+       return back()->with('attach' , "The role was added to the user") ;
     }
+
+
+
 
 
     public function attach_permission(User $user)
     {
         $user->permissions()->attach(request('permissions'));
-        return  back()  ;
+        return  back()->with('attach' , "The permission was added to the user")  ;
     }
 
 
 
-    public function detach(User $user){
 
+
+    public function detach(User $user)
+    {
         $user->roles()->detach(request('role'));
-
-        return back() ;
+        return back()->with('detach' , 'The role was removed to the user') ;
     }
 
 
@@ -122,7 +123,7 @@ class UserController extends Controller
     public function detach_permission(User $user)
     {
         $user->permissions()->detach(request('permissions'));
-        return  back()  ;
+        return  back()->with('detach' , 'The permission was removed to the user')  ;
 
     }
 

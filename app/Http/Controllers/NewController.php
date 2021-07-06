@@ -26,7 +26,7 @@ class NewController extends Controller
         ]);
 
         auth()->user()->news()->create($input)  ;
-        return  back()  ;
+        return  back()->with('create'   , 'create a news')  ;
     }
 
 
@@ -51,7 +51,7 @@ class NewController extends Controller
 
 
         $news->update($input)   ;
-        return  redirect()->route('allnews')   ;
+        return  redirect()->route('allnews')->with('create'   , 'update  news')   ;
 
     }
 
@@ -59,6 +59,6 @@ class NewController extends Controller
     public function destory(news $news)
     {
        $news->delete()  ;
-       return   back()  ;
+       return   back()->with('remove' , 'news delete')  ;
     }
 }

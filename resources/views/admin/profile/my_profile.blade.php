@@ -6,6 +6,14 @@
     <h1>user profile for  : {{$user->name}}</h1>
 
 
+    @if ($message = Session::get('attach'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
+
+
     <div class="row">
         <div class="col-sm-6">
 

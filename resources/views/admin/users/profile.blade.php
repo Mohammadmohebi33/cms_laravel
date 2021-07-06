@@ -3,6 +3,29 @@
 
 @section('content')
 
+
+    @if ($message = Session::get('attach'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
+
+
+
+    @if ($message = Session::get('detach'))
+        <div class="alert alert-danger alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
+
+
+
+
+
+
+
     <h1>user profile for  : {{$user->name}}</h1>
 
 

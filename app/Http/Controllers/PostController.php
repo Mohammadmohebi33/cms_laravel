@@ -58,7 +58,7 @@ class PostController extends ImageController
 
          $imageurl =  $this->uploadImage(request()->file('post_image')) ;
          auth()->user()->posts()->create(array_merge(request()->all()   ,   ['post_image'   =>  $imageurl])) ;
-         return back() ;
+         return back()->with('create' , 'post was created') ;
     }
 
 
@@ -96,8 +96,8 @@ class PostController extends ImageController
         }
 
         $post->update(array_merge($request->all()   ,   ['post_image'   =>  $imageurl])) ;
-        $request->session()->flash('message' , 'Post was updated')  ;
-        return redirect()->route('post.index') ;
+       // $request->session()->flash('message' , 'Post was updated')  ;
+        return redirect()->route('post.index')->with('edit' , 'post updated') ;
 
     }
 
@@ -110,8 +110,8 @@ class PostController extends ImageController
         $this->authorize('delete' , $post) ;
         unlink('storage/images/'.$post->post_image) ;
         $post->delete() ;
-        $request->session()->flash('message' , 'Post was deleted')  ;
-        return back() ;
+     //   $request->session()->flash('message' , 'Post was deleted')  ;
+        return back()->with('delete' , 'post deleted') ;
     }
 
 
@@ -119,7 +119,7 @@ class PostController extends ImageController
     public function attach(Post $post)
     {
      $post->category()->attach(request('category'));
-     return back() ;
+     return back()->with('edit' , 'add category ') ;
     }
 
 
@@ -127,7 +127,7 @@ class PostController extends ImageController
     public function detach(Post $post)
     {
         $post->category()->detach(request('category'))  ;
-        return back() ;
+        return back()->with('delete' , 'remove category') ;
     }
 
 

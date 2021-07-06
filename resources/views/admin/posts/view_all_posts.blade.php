@@ -4,13 +4,26 @@
 
     <h1>all post</h1>
 
-    @if(\Illuminate\Support\Facades\Session::has('message'))
 
-        <div class="alert alert-danger">
-        {{session('message')}}
+
+
+
+    @if ($message = Session::get('edit'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
         </div>
-
     @endif
+
+
+
+    @if ($message = Session::get('delete'))
+        <div class="alert alert-danger alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
+
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">

@@ -57,7 +57,7 @@
     @include('comments.main-comment')
 
     <!-- Comment with nested comments -->
-    {{--   @include('comments.nested-comment')--}}
+{{--       @include('comments.nested-comment')--}}
 
 
 @endsection

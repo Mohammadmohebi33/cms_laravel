@@ -6,6 +6,14 @@
     <h1>all users</h1>
 
 
+    @if ($message = Session::get('delete'))
+        <div class="alert alert-danger alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
+
+
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">

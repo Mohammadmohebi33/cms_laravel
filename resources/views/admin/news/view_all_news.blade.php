@@ -7,6 +7,25 @@
     <h1>News :</h1>
 
 
+    @if ($message = Session::get('create'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
+
+
+
+
+    @if ($message = Session::get('remove'))
+        <div class="alert alert-danger alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
+
+
+
     <div class="row">
 
         <div class="col-sm-12">

@@ -3,6 +3,17 @@
 
 @section('content')
 
+
+    @if ($message = Session::get('create'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
+
+
+
+
     <h1>create</h1>
 
     <form action="{{route('post.store')}}" method="post" enctype="multipart/form-data">
