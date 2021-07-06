@@ -95,4 +95,11 @@ class User extends Authenticatable
         return  $this->hasMany(news::class) ;
     }
 
+
+
+    public function message()
+    {
+        return $this->hasMany(Message::class)   ;
+    }
+
 }

@@ -42,6 +42,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
+
         $this->mapApiRoutes();
 
         $this->mapWebRoutes();
@@ -61,6 +62,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapCommentRoutes() ;
 
         $this->mapNewsRoutes()  ;
+
+        $this->mapMessageRoutes()   ;
 
 
         //
@@ -171,5 +174,15 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/web/news.php'));
+    }
+
+
+
+    protected function mapMessageRoutes()
+    {
+        Route::prefix('admin')
+            ->middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web/message.php'));
     }
 }
