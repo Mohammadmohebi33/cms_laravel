@@ -12,6 +12,7 @@ class UserController extends Controller
 {
 
     public function  index()
+
     {
         $users = User::all() ;
         return view('admin.users.index' ,  ['users' => $users]) ;
@@ -20,11 +21,12 @@ class UserController extends Controller
 
 
 
-    public  function  show(User $user){
 
 
+    public  function  show(User $user)
+
+    {
         return view('admin.users.profile' , [
-
 
             'user' => $user ,
             'roles'=> Role::all()  ,
@@ -35,9 +37,12 @@ class UserController extends Controller
 
 
 
-    public  function  update(User $user , Request $request){
 
 
+
+
+    public  function  update(User $user , Request $request)
+    {
 
         $input = request()->validate([
 
@@ -84,6 +89,7 @@ class UserController extends Controller
 
 
     public function destroy(User $user)
+
     {
         $user->delete() ;
         return back()->with('delete' , 'user deleted :))') ;
@@ -92,7 +98,11 @@ class UserController extends Controller
 
 
 
-    public function attach(User $user){
+
+
+    public function attach(User $user)
+
+    {
        $user->roles()->attach(request('role'));
        return back()->with('attach' , "The role was added to the user") ;
     }
@@ -101,7 +111,9 @@ class UserController extends Controller
 
 
 
+
     public function attach_permission(User $user)
+
     {
         $user->permissions()->attach(request('permissions'));
         return  back()->with('attach' , "The permission was added to the user")  ;
@@ -112,6 +124,7 @@ class UserController extends Controller
 
 
     public function detach(User $user)
+
     {
         $user->roles()->detach(request('role'));
         return back()->with('detach' , 'The role was removed to the user') ;
@@ -121,6 +134,7 @@ class UserController extends Controller
 
 
     public function detach_permission(User $user)
+
     {
         $user->permissions()->detach(request('permissions'));
         return  back()->with('detach' , 'The permission was removed to the user')  ;

@@ -85,7 +85,8 @@ class User extends Authenticatable
     }
 
 
-    public function  cats(){
+    public function  cats()
+    {
         return $this->hasMany(Category::class) ;
     }
 

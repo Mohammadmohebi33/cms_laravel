@@ -12,7 +12,9 @@ class RoleController extends Controller
 
 
 
-    public  function  index(){
+    public  function  index()
+
+    {
         return view('admin.role.index', [
             'roles' => Role::all() ,
         ]) ;
@@ -24,7 +26,10 @@ class RoleController extends Controller
 
 
 
-    public  function  store(){
+
+    public  function  store()
+
+    {
         request()->validate([
             'name' => ['required']
         ]);
@@ -43,7 +48,10 @@ class RoleController extends Controller
 
 
 
-    public function destroy(Role $role){
+
+    public function destroy(Role $role)
+
+    {
        $role->delete() ;
        return back() ;
     }
@@ -53,7 +61,9 @@ class RoleController extends Controller
 
 
 
-    public function edit(Role $role){
+    public function edit(Role $role)
+
+    {
       return view('admin.role.edit' , [
           'role' => $role ,
           'permissions' => Permission::all() ,
@@ -64,10 +74,13 @@ class RoleController extends Controller
 
 
 
-    public function update(Role $role){
+
+
+    public function update(Role $role)
+
+    {
        $role->name  = request('name') ;
        $role->slug  = request('name') ;
-
        $role->save() ;
 
        return back() ;
@@ -75,13 +88,27 @@ class RoleController extends Controller
 
 
 
-    public function attach_permission(Role $role){
+
+
+
+    public function attach_permission(Role $role)
+
+    {
         $role->permissions()->attach(request('permission'));
         return back() ;
     }
 
 
-    public function detach_permission(Role $role){
+
+
+
+
+
+
+    public function detach_permission(Role $role)
+
+
+    {
         $role->permissions()->detach(request('permission'));
         return back() ;
     }

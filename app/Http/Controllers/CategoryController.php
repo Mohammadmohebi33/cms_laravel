@@ -9,7 +9,8 @@ class CategoryController extends Controller
 {
 
 
-    public function index(){
+    public function index()
+    {
         return view('admin.Category.view_all_category' , ['categorys' => Category::all()]) ;
     }
 
@@ -18,7 +19,8 @@ class CategoryController extends Controller
 
 
 
-    public  function  store(){
+    public  function  store()
+    {
         request()->validate([
             'name' => ['required']
         ]);
@@ -27,24 +29,29 @@ class CategoryController extends Controller
 
             'name' => request('name')   ,
         ]);
+
         return back() ;
     }
 
 
 
-    public function edit(Category $category){
 
+
+
+    public function edit(Category $category)
+    {
         return view('admin.Category.edit' , ['category' => $category ,]);
     }
 
 
 
 
-    public function update(Category $category){
+
+
+    public function update(Category $category)
+    {
 
         $category->name  = request('name') ;
-
-
         $category->save() ;
 
         return redirect(route('cat.index')) ;
@@ -54,10 +61,10 @@ class CategoryController extends Controller
 
 
 
-    public function destroy(Category $category){
 
+    public function destroy(Category $category)
+    {
       $category->delete() ;
-
       return back() ;
     }
 }

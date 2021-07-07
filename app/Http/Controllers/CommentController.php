@@ -20,8 +20,8 @@ class CommentController extends Controller
 
 
 
-    public  function store(Request $request  , $id){
-
+    public  function store(Request $request  , $id)
+    {
 
         $inputs = request()->validate([
             'comment' => 'required'
@@ -38,12 +38,18 @@ class CommentController extends Controller
 
 
 
+
+
     public function accept(Comment $comment)
     {
        $comment->accept =   true    ;
        $comment->update()   ;
        return   back()  ;
     }
+
+
+
+
 
 
     public function disable(Comment $comment)

@@ -24,13 +24,15 @@ Route::middleware(['role:Admin' ,   'auth'])->group(function (){
 });
 
 
-Route::middleware(['auth',  'permission:profile'])->group(function (){
 
-
-    Route::put('/users/{user}/update' , 'UserController@update')->name('user.profile.update') ;
-
-
-});
+Route::put('/users/{user}/update' , 'UserController@update')->name('user.profile.update') ;
+//Route::middleware(['auth',  'permission:profile'])->group(function (){
+//
+//
+//
+//
+//
+//});
 
 
 

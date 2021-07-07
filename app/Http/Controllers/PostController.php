@@ -26,6 +26,8 @@ class PostController extends ImageController
 
 
 
+
+
     public  function show(Post $post)
     {
         $categorys = Category::all() ;
@@ -47,7 +49,6 @@ class PostController extends ImageController
 
     public  function store()
     {
-       // $this->authorize('create' , Post::class) ;
 
          $inputs = request()->validate([
             'title'       => 'required|min:8|max:25' ,
@@ -65,12 +66,17 @@ class PostController extends ImageController
 
 
 
+
+
     public function edit(Post $post)
     {
         $this->authorize('view' , $post) ;
         $categorys = Category::all() ;
         return view('admin.posts.edit' , ['post' => $post , 'categorys' => $categorys]) ;
     }
+
+
+
 
 
 
@@ -105,6 +111,9 @@ class PostController extends ImageController
 
 
 
+
+
+
     public function  destroy(Post $post , Request $request)
     {
         $this->authorize('delete' , $post) ;
@@ -116,11 +125,22 @@ class PostController extends ImageController
 
 
 
+
+
+
+
     public function attach(Post $post)
     {
      $post->category()->attach(request('category'));
      return back()->with('edit' , 'add category ') ;
     }
+
+
+
+
+
+
+
 
 
 

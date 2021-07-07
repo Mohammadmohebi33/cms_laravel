@@ -64,6 +64,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>send by</th>
+                                <th>image</th>
                                 <th>message</th>
                                 <th>Delete</th>
 
@@ -74,6 +75,7 @@
                             <tr>
                             <th>Id</th>
                             <th>send by</th>
+                                <th>image</th>
                             <th>message</th>
                             <th>Delete</th>
 
@@ -96,6 +98,7 @@
 
                                     <td>{{$message->id}}</td>
                                     <td>{{$message->user->name}}</td>
+                                    <td><img src="/storage/images/{{$message->user->avatar}}"></td>
                                     <td>{{$message->message}} </td>
 
                                     <td>

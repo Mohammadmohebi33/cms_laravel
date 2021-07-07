@@ -11,13 +11,18 @@ class PermissionController extends Controller
 
 
 
-    public  function  index(){
+    public  function  index()
+    {
         return view('admin.permission.index' , ['permissions' => Permission::all()]) ;
     }
 
 
 
-    public  function  destroy(Permission $permission){
+
+
+
+    public  function  destroy(Permission $permission)
+    {
        $permission->delete() ;
        return back() ;
     }
@@ -25,7 +30,11 @@ class PermissionController extends Controller
 
 
 
-    public  function  store(){
+
+
+
+    public  function  store()
+    {
         request()->validate([
             'name' => ['required']
         ]);
@@ -42,7 +51,11 @@ class PermissionController extends Controller
 
 
 
-    public function edit(Permission $permission){
+
+
+    public function edit(Permission $permission)
+
+    {
         return view('admin.permission.edit' , [
             'permission' => $permission ,
             'roles' => Role::all() ,
@@ -51,10 +64,17 @@ class PermissionController extends Controller
 
 
 
-    public function update(Permission $permission){
+
+
+
+
+
+
+    public function update(Permission $permission)
+
+    {
         $permission->name  = request('name') ;
         $permission->slug  = request('name') ;
-
         $permission->save() ;
 
         return back() ;
@@ -64,13 +84,25 @@ class PermissionController extends Controller
 
 
 
-    public function attach_role(Permission $permission){
+
+
+    public function attach_role(Permission $permission)
+
+    {
         $permission->roles()->attach(request('role'));
         return back() ;
     }
 
 
-    public function detach_role(Permission $permission){
+
+
+
+
+
+
+    public function detach_role(Permission $permission)
+
+    {
         $permission->roles()->detach(request('role'));
         return back() ;
     }

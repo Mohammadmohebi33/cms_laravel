@@ -11,7 +11,8 @@ class Role extends Model
     protected $guarded  =  [] ;
 
 
-    public function permissions(){
+    public function permissions()
+    {
 
         return $this->belongsToMany(Permission::class) ;
     }
@@ -19,7 +20,8 @@ class Role extends Model
 
 
 
-    public function users(){
+    public function users()
+    {
 
         return $this->belongsToMany(User::class) ;
     }

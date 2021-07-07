@@ -18,9 +18,12 @@ class MessageController extends Controller
     }
 
 
+
+
+
+
     public function store(Request $request)
     {
-
         $input = $request->validate([
 
             'message'        => 'required',
@@ -32,6 +35,9 @@ class MessageController extends Controller
         return back()   ;
 
     }
+
+
+
 
 
 

@@ -17,6 +17,9 @@ class NewController extends Controller
 
 
 
+
+
+
     public function store(Request $request)
     {
 
@@ -31,18 +34,24 @@ class NewController extends Controller
 
 
 
+
+
+
+
     public function edit(news $news)
     {
-
-
        return   view('admin.news.edit'  ,   ['news' =>  $news]) ;
     }
 
 
 
+
+
+
+
+
     public function update(news $news)
     {
-
 
         $input = request()->validate([
 
@@ -54,6 +63,10 @@ class NewController extends Controller
         return  redirect()->route('allnews')->with('create'   , 'update  news')   ;
 
     }
+
+
+
+
 
 
     public function destory(news $news)
