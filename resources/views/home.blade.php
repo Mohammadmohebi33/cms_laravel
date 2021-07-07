@@ -1,7 +1,14 @@
 @extends('components.home-master')
 
 
+@section('Widget')
+    @include('Widget')
+@endsection
+
+
 @section('content')
+
+
 
     <h1 class="my-4">Page Heading
         <small>Secondary Text</small>

@@ -31,6 +31,7 @@ class PostController extends ImageController
     public  function show(Post $post)
     {
         $categorys = Category::all() ;
+
         return view('blog-post' , ['post' => $post , 'categorys' => $categorys]) ;
     }
 

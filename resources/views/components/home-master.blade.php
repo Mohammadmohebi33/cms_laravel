@@ -98,7 +98,7 @@
             </div>
 
             <!-- Side Widget -->
-           @include('Widget')
+          @yield('Widget')
 
         </div>
 
