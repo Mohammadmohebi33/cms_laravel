@@ -65,6 +65,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapMessageRoutes()   ;
 
+        $this->mapContactRoutes()   ;
+
 
         //
     }
@@ -184,5 +186,16 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/web/message.php'));
+    }
+
+
+
+
+    protected function mapContactRoutes()
+    {
+        Route::prefix('admin')
+            ->middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web/contact.php'));
     }
 }
