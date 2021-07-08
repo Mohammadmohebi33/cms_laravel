@@ -87,6 +87,7 @@
 
 
         @include('components.admin.sidebar.admin-sidbar-message')
+        @include('components.admin.sidebar.admin-sidbar-contact')
 
 
 

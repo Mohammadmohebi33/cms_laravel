@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Contact;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -18,8 +19,32 @@ class ContactController extends Controller
     }
 
 
-    public function store(Request $request)
+
+    public function show()
+
     {
+
+        $contact    =   Contact::all()  ;
+        return view('admin.contact.index'   ,   ['contacts'  =>  $contact]) ;
+    }
+
+
+
+    public function destroy(Contact $contact)
+    {
+
+        $contact->delete()  ;
+        return  back()  ;
+    }
+
+
+
+
+
+    public function store(Request $request)
+
+    {
+
         //dd($request->all());
         $inputs = request()->validate([
             'title'       => 'required|min:8|max:25' ,
