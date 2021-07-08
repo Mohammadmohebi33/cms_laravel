@@ -17,6 +17,8 @@ Route::middleware(['auth',  'permission:profile'])->group(function (){
     Route::put('/posts/{post}/update', 'PostController@update')->name('post.update');
     Route::put('/posts/{post}/attach' , 'PostController@attach')->name('post.attach');
     Route::put('/posts/{post}/detach' , 'PostController@detach')->name('post.detach')   ;
+    Route::put('/apost/{post}'  ,   'PostController@accept')->name('accept_post')  ;
+    Route::put('/dpost/{post}'  ,   'PostController@disable')->name('disable_post')  ;
 
 
 });

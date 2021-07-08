@@ -31,7 +31,6 @@ class PostController extends ImageController
     public  function show(Post $post)
     {
         $categorys = Category::all() ;
-
         return view('blog-post' , ['post' => $post , 'categorys' => $categorys]) ;
     }
 
@@ -155,6 +154,24 @@ class PostController extends ImageController
 
 
 
+    public function accept(Post $post)
+    {
+        $post->accept =   true    ;
+        $post->update()   ;
+        return   back()  ;
+    }
+
+
+
+
+
+
+    public function disable(Post $post)
+    {
+        $post->accept    =   false   ;
+        $post->update();
+        return  back();
+    }
 
 
 

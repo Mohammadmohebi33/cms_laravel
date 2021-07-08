@@ -34,24 +34,30 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
+                        <th>option</th>
                         <th>Id</th>
                         <th>Owner</th>
                         <th>Title</th>
                         <th>Image</th>
                         <th>Created At</th>
                         <th>Updated At</th>
+                        <th>accept</th>
+                        <th>deaccept</th>
                         <th>Delete</th>
 
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
+                        <th>option</th>
                         <th>Id</th>
                         <th>Owner</th>
                         <th>Title</th>
                         <th>Image</th>
                         <th>Created At</th>
                         <th>Updated At</th>
+                        <th>accept</th>
+                        <th>deaccept</th>
                         <th>Delete</th>
 
                     </tr>
@@ -60,6 +66,13 @@
 
                     @foreach($posts as $post)
                     <tr>
+                        <th><input type="checkbox"
+                                   @if($post->accept   ==  true)
+
+                                   checked
+                                @endif
+                            >
+                        </th>
                         <td>{{$post->id}}</td>
                         <th>{{$post->user->name}}</th>
                         <td><a href="{{route('post.edit' , $post->id)}}"> {{$post->title}}</a></td>
@@ -83,6 +96,57 @@
                             @endcan
 
                         </th>
+
+
+                        <td>
+
+                            <form method="post" action="{{route('accept_post' ,   $post->id)}}">
+                                @csrf
+                                @method('PUT')
+
+
+                                <button class="btn btn-primary"
+
+                                        @if($post->accept   ==  1   )
+                                        disabled
+                                    @endif
+
+                                >
+
+
+
+                                    Attach</button>
+
+
+                            </form>
+
+                        </td>
+
+                        <td>
+
+
+
+                            <form method="post" action="{{route('disable_post'  ,   $post->id)}}">
+                                @csrf
+                                @method('PUT')
+
+
+                                <button class="btn btn-danger"
+
+                                        @if($post->accept   ==  0   )
+                                        disabled
+                                    @endif
+
+                                >
+
+
+
+                                    deatach</button>
+
+
+                            </form>
+
+                        </td>
 
                     </tr>
                     @endforeach

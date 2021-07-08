@@ -27,7 +27,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $posts = Post::all() ;
+        $posts   = Post::where('accept' ,   1)->get()   ;
         $category = Category::all() ;
         $news   =  news::orderBy('created_at'   ,   'desc')->take(3)->get();
 

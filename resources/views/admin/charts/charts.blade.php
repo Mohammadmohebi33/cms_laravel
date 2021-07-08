@@ -27,10 +27,11 @@
             ["Element", "Density", { role: "style" } ],
 
 
-            ["users", {{$users}}, "#b87333"],
-            ["comments", {{$comments}}, "blue"],
-            ["posts", {{$posts}}, "gold"],
-            ["category", {{$category}}, "color: red"]
+            ["تعداد کاربران", {{$users}}, "#b87333"],
+            ["کامنت های تایید شده ", {{$comments_ok}}, "blue"],
+            ["کامنت های تایید نشده ", {{$comments_no}}, "black"],
+            ["تعداد پست ها", {{$posts}}, "gold"],
+            ["عنوان ها", {{$category}}, "color: red"]
 
 
 

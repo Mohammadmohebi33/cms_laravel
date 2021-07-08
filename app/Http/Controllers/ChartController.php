@@ -14,7 +14,9 @@ class ChartController extends Controller
     public function index()
     {
 
-        $comments   =   Comment::count()    ;
+       // $comments   =   Comment::count()    ;
+        $comments_ok  =   Comment::where('accept' , 1)->get()->count() ;
+        $comments_no  =   Comment::where('accept' , 0)->get()->count() ;
         $posts      =   Post::count()   ;
         $users      =   User::count()   ;
         $category   =   Category::count()   ;
@@ -25,10 +27,11 @@ class ChartController extends Controller
 
         return  view('admin.charts.charts'  ,   [
 
-            'comments'  =>  $comments   ,
-            'posts'     =>  $posts  ,
-            'users'     =>  $users  ,
-            'category'  =>  $category
+            'comments_ok'  =>  $comments_ok   ,
+            'comments_no'  =>  $comments_no   ,
+            'posts'        =>  $posts  ,
+            'users'        =>  $users  ,
+            'category'     =>  $category
 
         ]) ;
     }
