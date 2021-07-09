@@ -25,3 +25,14 @@ Route::get('/post/{post}' ,   'PostapiController@findbyid')  ;
 Route::post('/post/create'   ,   'PostapiController@store')   ;
 Route::delete('/post/delete/{post}' ,   'PostapiController@destroy')  ;
 Route::put('post/update/{post}'     ,   'PostapiController@update')    ;
+
+
+
+
+
+
+Route::get('/users' ,   'UserapiController@index')    ;
+Route::get('/user/{user}' ,   'UserapiController@findbyid')  ;
+Route::post('/user/create'   ,   'UserapiController@store')   ;
+Route::delete('/user/delete/{user}' ,   'UserapiController@destroy')  ;
+Route::put('user/update/{user}'     ,   'UserapiController@update')    ;
