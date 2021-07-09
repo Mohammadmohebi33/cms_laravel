@@ -28,4 +28,7 @@ class DownloadController extends Controller
      return Response::download($file    ,   $post->post_image ,   $headers)   ;
 
     }
+
+
+
 }

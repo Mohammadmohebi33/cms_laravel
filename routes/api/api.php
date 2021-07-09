@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route    ;
+use App\Http\Controllers\api\PostapiController  ;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/posts' ,   'PostapiController@index')    ;
+Route::get('/post/{post}' ,   'PostapiController@findbyid')  ;
+Route::post('/post/create'   ,   'PostapiController@store')   ;
+Route::delete('/post/delete/{post}' ,   'PostapiController@destroy')  ;
+Route::put('post/update/{post}'     ,   'PostapiController@update')    ;
